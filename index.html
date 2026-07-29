@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Gonato | Customer Support & Technical Success Specialist</title>
+    <meta name="description" content="Portfolio of Jay Gonato, Tier 2 Support Specialist with 6+ years experience in SaaS, E-commerce, and Healthcare.">
+    
+    <!-- Google Fonts & Lucide Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-body: #030712;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-nav: rgba(3, 7, 18, 0.8);
+            --accent: #3B82F6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --text-main: #F9FAFB;
+            --text-dim: #9CA3AF;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition-speed: 0.4s;
+        }
+
+        [data-theme="light"] {
+            --bg-body: #F9FAFB;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --bg-nav: rgba(249, 250, 251, 0.8);
+            --text-main: #111827;
+            --text-dim: #4B5563;
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; transition: background-color var(--transition-speed); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: var(--accent); z-index: 2000; }
+
+        .glass-card { background: var(--bg-card); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 24px; transition: 0.3s; }
+        .glass-card:hover { border: 1px solid var(--accent); box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-5px); }
+
+        .btn { padding: 12px 24px; border-radius: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--glass-border); }
+
+        nav { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px; padding: 12px 24px; background: var(--bg-nav); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-main); }
+
+        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-tag { color: var(--accent); text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 5rem); letter-spacing: -2px; margin-bottom: 10px; }
+        .hero h2 { font-size: 1.5rem; color: var(--accent); min-height: 40px; }
+
+        /* Timeline */
+        .timeline { border-left: 2px solid var(--glass-border); padding-left: 30px; position: relative; margin: 40px 0; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; position: absolute; left: -37px; top: 8px; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; border: 3px solid var(--bg-body); }
+        .timeline-date { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 5px; }
+
+        /* Grid Layouts */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+        .bento-card { padding: 30px; }
+
+        .skill-badge { background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <nav>
+        <a href="#" style="color: var(--accent); font-weight: 800; text-decoration: none; font-size: 1.2rem;">JG</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button onclick="toggleTheme()" style="background:none; border:none; color:var(--text-main); cursor:pointer;">
+            <i data-lucide="moon" id="theme-icon"></i>
+        </button>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero reveal">
+        <span class="section-tag">Tier 2 Technical Support</span>
+        <h1>Jay Gonato</h1>
+        <h2 id="typing-text"></h2>
+        <p style="max-width: 600px; color: var(--text-dim); margin-top: 20px;">
+            6+ years of experience supporting global clients across SaaS, E-commerce, EdTech, Healthcare, and Telecom. Specializing in escalations, technical troubleshooting, and high-level customer retention.
+        </p>
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <a href="#" class="btn btn-primary"><i data-lucide="file-text"></i> View Resume</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (From Resume Content) -->
+    <section id="about">
+        <div class="grid-3" style="grid-template-columns: 1.5fr 1fr;">
+            <div class="glass-card bento-card reveal">
+                <span class="section-tag">Overview</span>
+                <h3>Experienced Multi-Sector Support Specialist</h3>
+                <p style="color: var(--text-dim); margin-top: 15px;">
+                    Highly versatile Support professional with deep experience in US-based and Global markets. I bridge the gap between technical complexity and customer satisfaction through Tier 1 & Tier 2 support, account management, and strategic escalation handling.
+                </p>
+            </div>
+            <div class="glass-card bento-card reveal" style="transition-delay: 0.1s;">
+                <span class="section-tag">Focus</span>
+                <ul style="list-style: none; margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+                    <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" style="color:var(--accent); width:18px;"></i> Technical Escalations</li>
+                    <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" style="color:var(--accent); width:18px;"></i> Customer Retention</li>
+                    <li style="display:flex; align-items:center; gap:10px;"><i data-lucide="check-circle" style="color:var(--accent); width:18px;"></i> Cross-Team Sync</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK EXPERIENCE (Fully Updated from Resume) -->
+    <section id="experience">
+        <span class="section-tag">The Journey</span>
+        <h3>Professional Experience</h3>
+        
+        <div class="timeline reveal">
+            <!-- Role 1 -->
+            <div class="timeline-item">
+                <p class="timeline-date">CURRENT ROLE</p>
+                <h4>Patient & Technical Coordinator — ICANotes</h4>
+                <p style="color: var(--text-dim);">Ensuring scheduling efficiency and clinical patient record accuracy in a complex healthcare SaaS environment.</p>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="timeline-item">
+                <p class="timeline-date">L2 TIER SUPPORT</p>
+                <h4>L2 Client Support Specialist — Preply</h4>
+                <p style="color: var(--text-dim);">Direct coordination with internal technical and engineering teams to troubleshoot platform-related issues and system bugs.</p>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="timeline-item">
+                <p class="timeline-date">RETENTION SPECIALIST</p>
+                <h4>Client Retention Specialist — Varsity Tutors LLC</h4>
+                <p style="color: var(--text-dim);">Leveraging omni-channel support (Chat, Email, Phone) to drive subscription maintenance and long-term user value.</p>
+            </div>
+
+            <!-- Role 4 -->
+            <div class="timeline-item">
+                <p class="timeline-date">TEAM LEAD EXPERIENCE</p>
+                <h4>Account Retention Lead — Valyou Furnitures</h4>
+                <p style="color: var(--text-dim);">Deep Shopify integration management including orders, high-stakes returns, and logistical exchanges.</p>
+            </div>
+
+            <!-- Role 5 -->
+            <div class="timeline-item">
+                <p class="timeline-date">TELECOM SUPPORT</p>
+                <h4>Customer Loyalty Representative — AT&T Mobility</h4>
+                <p style="color: var(--text-dim);">Management of high-priority billing escalations and technical issue resolutions in a fast-paced environment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION (Expanded from Resume) -->
+    <section id="skills">
+        <span class="section-tag">Expertise</span>
+        <h3>Core Skills & Tools</h3>
+        
+        <div class="grid-3">
+            <div class="glass-card bento-card reveal">
+                <h4 style="margin-bottom:15px;">Support Stack</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="skill-badge">Tier 1 & Tier 2 Support</span>
+                    <span class="skill-badge">Technical Troubleshooting</span>
+                    <span class="skill-badge">Escalation Handling</span>
+                    <span class="skill-badge">Account Management</span>
+                    <span class="skill-badge">Patient Record Systems</span>
+                </div>
+            </div>
+            <div class="glass-card bento-card reveal">
+                <h4 style="margin-bottom:15px;">CRM & Platforms</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="skill-badge">Zendesk</span>
+                    <span class="skill-badge">Shopify</span>
+                    <span class="skill-badge">HubSpot</span>
+                    <span class="skill-badge">Intercom</span>
+                    <span class="skill-badge">Freshdesk</span>
+                    <span class="skill-badge">Gorgias</span>
+                    <span class="skill-badge">Zoho</span>
+                    <span class="skill-badge">Genesys</span>
+                </div>
+            </div>
+            <div class="glass-card bento-card reveal">
+                <h4 style="margin-bottom:15px;">Cybersecurity & Certs</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="skill-badge">CompTIA Security+</span>
+                    <span class="skill-badge">Network Security</span>
+                    <span class="skill-badge">Risk Management</span>
+                    <span class="skill-badge">Endpoint Protection</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+        <span class="section-tag">Foundation</span>
+        <h3>Education & Certification</h3>
+        <div class="grid-3">
+            <div class="glass-card bento-card reveal">
+                <p class="timeline-date">UNIVERSITY OF MINDANAO</p>
+                <h4>Bachelor of Science in Architecture</h4>
+                <p style="color:var(--text-dim); font-size:0.9rem;">Bridging design thinking and technical problem-solving.</p>
+            </div>
+            <div class="glass-card bento-card reveal" style="border-left: 4px solid var(--accent);">
+                <p class="timeline-date">COMPTIA CERTIFIED</p>
+                <h4>Security+ (2022)</h4>
+                <p style="color:var(--text-dim); font-size:0.9rem;">Core understanding of networking, threats, and cybersecurity fundamentals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" style="padding-bottom: 50px;">
+        <div class="glass-card bento-card reveal" style="text-align: center; padding: 60px;">
+            <h3>Let's Connect</h3>
+            <p style="color: var(--text-dim); margin-bottom: 30px;">Open to Technical Support, L2 Support, and Success Management roles.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="mailto:junjie.r.gonato@gmail.com" class="btn btn-primary"><i data-lucide="mail"></i> Email Jay</a>
+                <a href="https://linkedin.com/in/jay-gonato-416790209" target="_blank" class="btn btn-secondary"><i data-lucide="linkedin"></i> LinkedIn</a>
+            </div>
+            <p style="margin-top: 40px; color: var(--text-dim); font-size: 0.8rem;">Davao, Philippines | +63 946 070 9398</p>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid var(--glass-border);">
+        <p>&copy; 2026 Jay Gonato | Specialized Customer Support & Cybersecurity</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Typing Effect
+        const words = ["Support Specialist", "Technical Analyst", "Tier 2 Success Lead"];
+        let i = 0, j = 0, isDeleting = false;
+        function type() {
+            const current = words[i];
+            document.getElementById("typing-text").textContent = current.substring(0, j);
+            if (!isDeleting && j < current.length) j++;
+            else if (isDeleting && j > 0) j--;
+            else { isDeleting = !isDeleting; if(!isDeleting) i = (i+1)%words.length; }
+            setTimeout(type, isDeleting ? 50 : 150);
+        }
+        type();
+
+        // Reveal
+        const obs = new IntersectionObserver((es) => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); }));
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Scroll Progress
+        window.onscroll = () => {
+            const winScroll = document.documentElement.scrollTop, height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("scroll-progress").style.width = (winScroll / height) * 100 + "%";
+        };
+
+        // Theme Toggle
+        function toggleTheme() {
+            const b = document.body;
+            b.hasAttribute('data-theme') ? b.removeAttribute('data-theme') : b.setAttribute('data-theme', 'light');
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
